@@ -9,7 +9,7 @@ class KColor {
   /*
   app background color
   */
-  static const Color appBackground = Color(0xFFF5F5F5);
+  static const Color appBackground = Color(0xFFF2ECFF);
   static const Color whiteBackground = Color(0xFFF5F5F5);
 
   /*
@@ -24,7 +24,9 @@ class KColor {
   */
   static const Color black = Colors.black;
   static const Color white = Colors.white;
+  static const Color textColor = Color(0xFFFD2F8C);
   static const Color blackbg = Color(0xFF1B1B1B);
+  static const Color icon = Color(0xFF7C44EF);
   static const Color baseBlack = Color(0xFF000000);
   static const Color textBorder = Color(0xFF727272);
   static const Color searchColor = Color(0xFFEAE7E7);
