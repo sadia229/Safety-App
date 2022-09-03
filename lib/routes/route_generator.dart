@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:woman_safty_app/src/features/auth/login/view/login_page.dart';
 import 'package:woman_safty_app/src/features/auth/otp/view/otp_page.dart';
+import 'package:woman_safty_app/src/features/auth/signup/view/signup_page.dart';
 import 'package:woman_safty_app/src/features/home/view/home_page.dart';
-import 'package:woman_safty_app/src/features/signup/view/signup_page.dart';
+import 'package:woman_safty_app/src/features/splash/view/splash_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final Map? arguments = settings.arguments as Map?;
 
     switch (settings.name) {
+      case '/splash':
+        return MaterialPageRoute(
+          builder: (_) => const SplashScreen(),
+        );
       case '/login':
         return MaterialPageRoute(
           builder: (_) => const LoginPage(),
         );
       case '/otp':
         return MaterialPageRoute(
-          builder: (_) => const OtpPage(),
+          builder: (_) => OtpPage(
+            phoneNumber: arguments!['phoneNumber'],
+          ),
         );
       case '/signup':
         return MaterialPageRoute(

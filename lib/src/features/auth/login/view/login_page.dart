@@ -51,7 +51,11 @@ class _LoginPageState extends State<LoginPage> {
                 KButton(
                   title: 'Submit',
                   onTap: () {
-                    Navigator.pushNamed(context, '/otp');
+                    Navigator.pushNamed(
+                      context,
+                      '/otp',
+                      arguments: {'phoneNumber': phone.text},
+                    );
                   },
                 ),
                 const SizedBox(height: 20),

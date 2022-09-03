@@ -23,9 +23,12 @@ class KButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('$title',
-                  style: KTextStyle.subtitle1
-                      .copyWith(color: KColor.whiteBackground)),
+              Text(
+                '$title',
+                style: KTextStyle.subtitle7.copyWith(
+                  color: KColor.whiteBackground,
+                ),
+              ),
               const SizedBox(width: 15),
               const Icon(
                 Icons.arrow_forward_sharp,
