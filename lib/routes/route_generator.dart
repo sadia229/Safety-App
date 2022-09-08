@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:woman_safty_app/src/features/auth/login/view/login_page.dart';
-import 'package:woman_safty_app/src/features/auth/otp/view/otp_page.dart';
+import 'package:woman_safty_app/src/features/auth/otp/view/otp_send.dart';
 import 'package:woman_safty_app/src/features/auth/signup/view/signup_page.dart';
 import 'package:woman_safty_app/src/features/home/view/home_page.dart';
 import 'package:woman_safty_app/src/features/splash/view/splash_screen.dart';
@@ -20,7 +20,7 @@ class RouteGenerator {
         );
       case '/otp':
         return MaterialPageRoute(
-          builder: (_) => OtpPage(
+          builder: (_) => OtoSend(
             phoneNumber: arguments!['phoneNumber'],
           ),
         );

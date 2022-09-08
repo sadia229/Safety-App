@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:woman_safty_app/components/button/custom_button.dart';
 import 'package:woman_safty_app/components/textField/phone_textfield.dart';
 import 'package:woman_safty_app/constants/asset_path.dart';
+import 'package:woman_safty_app/service/page_transition.dart';
+import 'package:woman_safty_app/src/features/home/view/home_page.dart';
 import 'package:woman_safty_app/styles/b_style.dart';
 
 class LoginPage extends StatefulWidget {
@@ -51,10 +53,19 @@ class _LoginPageState extends State<LoginPage> {
                 KButton(
                   title: 'Submit',
                   onTap: () {
-                    Navigator.pushNamed(
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   BottomTransition(
+                    //     OtoSend(
+                    //       phoneNumber: phone.text,
+                    //     ),
+                    //   ),
+                    // );
+                    Navigator.pushReplacement(
                       context,
-                      '/otp',
-                      arguments: {'phoneNumber': phone.text},
+                      BottomTransition(
+                        const HomePage(),
+                      ),
                     );
                   },
                 ),

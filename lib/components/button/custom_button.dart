@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:woman_safty_app/styles/k_color.dart';
+import 'package:woman_safty_app/utils/extension.dart';
 import '../../styles/k_text_style.dart';
 
 class KButton extends StatelessWidget {
@@ -13,7 +14,7 @@ class KButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: context.screenWidth,
         height: 50,
         decoration: BoxDecoration(
           color: KColor.icon,

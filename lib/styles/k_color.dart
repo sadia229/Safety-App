@@ -25,6 +25,7 @@ class KColor {
   static const Color black = Colors.black;
   static const Color white = Colors.white;
   static const Color textColor = Color(0xFFFD2F8C);
+  static const Color baseTextColor = Color(0xFF8944FF);
   static const Color blackbg = Color(0xFF1B1B1B);
   static const Color icon = Color(0xFF7C44EF);
   static const Color baseBlack = Color(0xFF000000);

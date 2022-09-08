@@ -54,8 +54,6 @@ class KTextStyle {
   static TextStyle button = TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w400,
-    letterSpacing: 0.04,
-    height: 1.45,
     fontFamily: GoogleFonts.ubuntu().fontFamily,
   );
   // TODO :: Check the naming for styles,
