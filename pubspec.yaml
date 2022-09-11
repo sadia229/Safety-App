@@ -39,7 +39,8 @@ dependencies:
   geocoding: ^2.0.4
   geolocator: ^9.0.1
   google_maps_flutter: ^2.1.10
-  flutter_riverpod: ^1.0.4
+  location: ^4.4.0
+  flutter_polyline_points: ^1.0.0
   flutter_svg: ^1.1.1+1
   fluttertoast: ^8.0.9
   google_fonts: ^3.0.1
@@ -48,6 +49,7 @@ dependencies:
   sms_autofill: ^2.2.0
   timer_count_down: ^2.2.1
   easy_localization: ^3.0.1
+  bottom_navy_bar: ^6.0.0
 
 
 dev_dependencies:

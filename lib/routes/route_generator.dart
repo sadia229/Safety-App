@@ -30,7 +30,7 @@ class RouteGenerator {
         );
       case '/home':
         return MaterialPageRoute(
-          builder: (_) => const HomePage(),
+          builder: (_) => const HomeScreen(),
         );
       // case '/mainScreen':
       //   return MaterialPageRoute(
@@ -58,7 +58,7 @@ class RouteGenerator {
       //   );
       default:
         return MaterialPageRoute(
-          builder: (_) => const HomePage(),
+          builder: (_) => const HomeScreen(),
         );
     }
   }

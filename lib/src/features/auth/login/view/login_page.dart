@@ -4,6 +4,7 @@ import 'package:woman_safty_app/components/textField/phone_textfield.dart';
 import 'package:woman_safty_app/constants/asset_path.dart';
 import 'package:woman_safty_app/service/page_transition.dart';
 import 'package:woman_safty_app/src/features/home/view/home_page.dart';
+import 'package:woman_safty_app/src/features/main_screen.dart';
 import 'package:woman_safty_app/styles/b_style.dart';
 
 class LoginPage extends StatefulWidget {
@@ -64,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.pushReplacement(
                       context,
                       BottomTransition(
-                        const HomePage(),
+                        const MainScreen(),
                       ),
                     );
                   },
