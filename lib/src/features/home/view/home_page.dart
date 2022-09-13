@@ -4,8 +4,10 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:woman_safty_app/components/appbar/home_appbar.dart';
 import 'package:woman_safty_app/components/card/feature_card.dart';
 import 'package:woman_safty_app/components/drawer/k_drawer.dart';
+import 'package:woman_safty_app/components/slider/k_slider.dart';
 import 'package:woman_safty_app/constants/asset_path.dart';
 import 'package:woman_safty_app/styles/k_color.dart';
 import 'package:woman_safty_app/styles/k_text_style.dart';
@@ -70,81 +72,66 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: KColor.icon.withOpacity(0.7),
-        elevation: 0,
-        centerTitle: true,
-        toolbarHeight: 65,
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              address,
-              style: KTextStyle.subtitle5.copyWith(color: KColor.white),
-            ),
-            Text(
-              'Hello',
-              style: KTextStyle.description.copyWith(color: KColor.white),
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(56),
+          child: HomeAppBar(),
         ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 10.0),
-            child: CircleAvatar(
-              radius: 22,
-              backgroundColor: KColor.white,
-              backgroundImage: NetworkImage(
-                'https://i.pinimg.com/originals/3c/57/c2/3c57c23d84f37f1bf85ea3f303d1b5c6.jpg',
-                scale: 0.5,
-              ),
+        body: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "See what's everyone talking about you",
+                  style: KTextStyle.dialog.copyWith(
+                    color: KColor.blackbg,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                const KSlider(),
+                Container(
+                  height: context.screenHeight * 0.4,
+                  color: Colors.lightBlue,
+                  child: GoogleMap(
+                    mapType: MapType.hybrid,
+                    initialCameraPosition: _kGooglePlex,
+                    onMapCreated: (GoogleMapController controller) {
+                      _controller.complete(controller);
+                    },
+                  ),
+                ),
+                SizedBox(height: context.screenHeight * 0.05),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: GridView.builder(
+                    physics: const ScrollPhysics(),
+                    shrinkWrap: true,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 20.0,
+                      mainAxisSpacing: 16.0,
+                      childAspectRatio: 3 / 2,
+                    ),
+                    itemCount: featureImage.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return FeatureCard(
+                        img: featureImage[index],
+                        title: features[index],
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: context.screenHeight * 0.1),
+              ],
             ),
           ),
-        ],
-      ),
-      drawer: const KDrawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: context.screenHeight * 0.4,
-              color: Colors.lightBlue,
-              child: GoogleMap(
-                mapType: MapType.hybrid,
-                initialCameraPosition: _kGooglePlex,
-                onMapCreated: (GoogleMapController controller) {
-                  _controller.complete(controller);
-                },
-              ),
-            ),
-            SizedBox(height: context.screenHeight * 0.05),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: GridView.builder(
-                physics: const ScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 20.0,
-                  mainAxisSpacing: 16.0,
-                  childAspectRatio: 3 / 2,
-                ),
-                itemCount: featureImage.length,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  return FeatureCard(
-                    img: featureImage[index],
-                    title: features[index],
-                  );
-                },
-              ),
-            ),
-            SizedBox(height: context.screenHeight * 0.1),
-          ],
         ),
       ),
-
     );
   }
 }

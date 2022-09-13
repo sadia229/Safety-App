@@ -11,7 +11,12 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('shopping'),),
+      appBar: AppBar(
+        title: Text('shopping'),
+      ),
+      body: Column(
+        children: [],
+      ),
     );
   }
 }

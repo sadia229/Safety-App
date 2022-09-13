@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:woman_safty_app/constants/asset_path.dart';
 import 'package:woman_safty_app/styles/k_color.dart';
 import 'package:woman_safty_app/styles/k_text_style.dart';
@@ -14,44 +13,48 @@ class HomeAppBar extends StatefulWidget {
 class _HomeAppBarState extends State<HomeAppBar> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: KColor.icon,
-        elevation: 0,
-
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-              onPressed: () {
-                print('drawer pressed');
-                Scaffold.of(context).openDrawer();
-              },
-              icon: SvgPicture.asset(AssetPath.drawer,color: KColor.white,),
-            );
-          },
-        ),
-        actions: [
-          Column(
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'Hello',
-                style: KTextStyle.subtitle5.copyWith(color: KColor.white),
+               const CircleAvatar(
+                radius: 22,
+                backgroundColor: KColor.white,
+                backgroundImage: AssetImage(
+                  AssetPath.profile,
+                ),
               ),
-              Text(
-                'Hello',
-                style: KTextStyle.description.copyWith(color: KColor.white),
+              const SizedBox(width: 8),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Hello',
+                    style: KTextStyle.subtitle5.copyWith(color: KColor.blackbg),
+                  ),
+                  Text(
+                    'Hello',
+                    style:
+                        KTextStyle.description.copyWith(color: KColor.blackbg),
+                  ),
+                ],
               ),
             ],
           ),
-          CircleAvatar(
-            radius: 20,
-            backgroundColor: KColor.white,
-            child: Image.asset(
-              AssetPath.profile,
-              fit: BoxFit.cover,
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.notifications_none,
+              color: KColor.blackbg,
+              size: 30,
             ),
-          ),
+          )
         ],
       ),
     );
